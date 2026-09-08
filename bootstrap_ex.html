@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>로그인 페이지</title>
+<link href="bootstrap.min.css" rel="stylesheet">
+<style>
+  :root {
+    --bg-color: #f4f4f6;
+    --card-bg: #ffffff;
+    --text-color: #1a1a1a;
+    --input-bg: #ffffff;
+    --input-border: #ccccd6;
+    --input-text: #1a1a1a;
+    --placeholder-color: #8a8a95;
+    --accent: #6c4fd6;
+  }
+
+  html[data-theme="dark"] {
+    --bg-color: #2c2438;
+    --card-bg: #382e48;
+    --text-color: #f1edf9;
+    --input-bg: #423a54;
+    --input-border: #5a4d70;
+    --input-text: #f1edf9;
+    --placeholder-color: #b3a8c9;
+    --accent: #b39ddb;
+  }
+
+  html[data-theme="light"] {
+    --bg-color: #ffffff;
+    --card-bg: #ffffff;
+    --text-color: #1a1a1a;
+    --input-bg: #ffffff;
+    --input-border: #d8d8e0;
+    --input-text: #1a1a1a;
+    --placeholder-color: #8a8a95;
+    --accent: #6c4fd6;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+
+  form img {
+    display: block;
+    margin-right: auto;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+
+  form > div {
+    position: relative;
+    margin-bottom: 1em;
+    text-align: left;
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--input-text);
+  }
+
+  input[type="email"]::placeholder,
+  input[type="password"]::placeholder {color: var(--placeholder-color);}
+
+  input[type="email"]:focus,
+  input[type="password"]:focus {outline: none;border-color: var(--accent);}
+
+  form > div:has(input[type="checkbox"]) {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  form > div:has(input[type="checkbox"]) label {
+    font-size: 0.85rem;
+    margin: 0;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    padding: 0.65rem;
+    margin-top: 0.5rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--accent);
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  button[type="submit"]:hover {
+    opacity: 0.9;
+  }
+
+  form p {
+    margin-top: 1.2rem;
+    font-size: 0.75rem;
+    color: var(--placeholder-color);
+  }
+
+  #theme-switcher {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  #theme-toggle {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--input-border);
+    border-radius: 50%;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+    overflow: hidden;
+    padding: 0;
+  }
+
+  #theme-toggle img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+  }
+
+  #theme-panel {
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 0.6rem);
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 130px;
+    padding: 0.4rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.16);
+  }
+
+  #theme-switcher.open #theme-panel {
+    display: flex;
+  }
+
+  #theme-panel button {
+    border: none;
+    background: transparent;
+    color: var(--text-color);
+    font-size: 0.85rem;
+    text-align: left;
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  #theme-panel button:hover {
+    background-color: var(--input-bg);
+  }
+
+  #theme-panel button.active {
+    background-color: var(--accent);
+    color: #ffffff;
+  }
+</style>
+</head>
+<body>
+
+<main>
+    <form action="index.html">
+        <img
+            src="https://banner2.cleanpng.com/20180420/quw/kisspng-ori-and-the-blind-forest-ori-and-the-will-of-the-w-the-blind-date-5ad9939e66ef43.6093350515242085424216.jpg"
+            width="72"
+        >
+
+        <h1>Please sign in</h1>
+
+        <div>
+            <input
+                type="email"
+                placeholder="Email address"
+            >
+        </div>
+
+        <div>
+            <input
+                type="password"
+                placeholder="Password"
+            >
+        </div>
+
+        <div>
+            <input type="checkbox" id="remember">
+            <label for="remember">Remember me</label>
+        </div>
+
+        <button type="submit">Sign in</button>
+        
+        <p>© 2017–2025</p>
+
+    </form>
+</main>
+
+<div id="theme-switcher">
+    <div id="theme-panel">
+        <button data-theme="light">Light</button>
+        <button data-theme="dark">Dark</button>
+        <button data-theme="auto">Auto</button>
+    </div>
+    <button id="theme-toggle" aria-label="테마 설정" aria-haspopup="true" aria-expanded="false">
+        <img src="https://ps.w.org/icon-block/assets/icon-256x256.png?rev=3122589" alt="테마 설정">
+    </button>
+</div>
+
+<script>
+(function () {
+    var root = document.documentElement;
+    var switcher = document.getElementById('theme-switcher');
+    var toggle = document.getElementById('theme-toggle');
+    var options = document.querySelectorAll('#theme-panel button');
+    var mql = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function applyTheme(mode) {
+        if (mode === 'auto') {
+            root.setAttribute('data-theme', mql.matches ? 'dark' : 'light');
+        } else {
+            root.setAttribute('data-theme', mode);
+        }
+        options.forEach(function (btn) {
+            btn.classList.toggle('active', btn.dataset.theme === mode);
+        });
+        localStorage.setItem('theme-preference', mode);
+    }
+
+    function closePanel() {
+        switcher.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    mql.addEventListener('change', function () {
+        if (localStorage.getItem('theme-preference') === 'auto') {
+            applyTheme('auto');
+        }
+    });
+
+    toggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var isOpen = switcher.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    options.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            applyTheme(btn.dataset.theme);
+            closePanel();
+        });
+    });
+
+    document.addEventListener('click', function (e) {
+        if (!switcher.contains(e.target)) {
+            closePanel();
+        }
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closePanel();
+    });
+
+    var saved = localStorage.getItem('theme-preference') || 'auto';
+    applyTheme(saved);
+})();
+</script>
+
+</body>
+</html>
